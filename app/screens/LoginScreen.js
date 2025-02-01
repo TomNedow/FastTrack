@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, ImageBackground } from 'react-native';
 
 function LoginScreen() {
 
@@ -8,7 +7,10 @@ function LoginScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <ImageBackground 
+      source={require('../assets/login-background.png')} 
+      style={styles.container}
+    >
       <Text style={styles.header}>Login</Text>
 
       <TextInput 
@@ -23,16 +25,15 @@ function LoginScreen() {
       <TouchableOpacity style={styles.button} onPress={handlePress}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
     padding: 20, 
   },
   input: {
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#28a745',
     paddingVertical: 10,
     paddingHorizontal: 20,
+    width: "80%",
     borderRadius: 5,
   },
   buttonText: {
@@ -65,5 +67,3 @@ const styles = StyleSheet.create({
 });
 
 export default LoginScreen;
-  
-
