@@ -1,16 +1,14 @@
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, ImageBackground } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, ImageBackground, Button } from 'react-native';
 
-function LoginScreen() {
+function LoginScreen({navigation}) {
 
-  const handlePress = () => {
-    alert("You've logged in!");
-  }
 
   return (
     <ImageBackground 
       source={require('../assets/login-background.png')} 
       style={styles.container}
     >
+
       <Text style={styles.header}>Login</Text>
 
       <TextInput 
@@ -21,10 +19,14 @@ function LoginScreen() {
         style={styles.input}
         placeholder="Password"
       />
-
-      <TouchableOpacity style={styles.button} onPress={handlePress}>
-        <Text style={styles.buttonText}>Login</Text>
+      
+      <TouchableOpacity style={styles.forgetPasswordContainer}>
+        <Text style={styles.forgetPasswordText}>Forget Password</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Main')}>
+  <Text style={styles.buttonText}>Login</Text>
+</TouchableOpacity>
     </ImageBackground>
   );
 }
@@ -64,6 +66,19 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
   },
+  forgetPasswordContainer: {
+    width: '80%',
+    alignSelf: 'center',
+    marginBottom: 10,
+  },
+  
+  forgetPasswordText: {
+    alignSelf: "flex-end",
+    color: "#007BFF",
+    fontSize: 14,
+    fontWeight: "bold",
+  },
+  
 });
 
 export default LoginScreen;
