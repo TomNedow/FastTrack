@@ -1,32 +1,28 @@
 import { Text, StyleSheet, View, TouchableOpacity, Image, onPress } from 'react-native';
 import Emoji from "react-native-emoji";
 
-function WelcomeScreen1({ navigation }) {
+function WelcomeScreen2({ navigation }) {
 
   return (
     <View style={styles.container}>
       <Image source={require('../assets/Subtract.png')} style={styles.subtract}/>
-      <Image source={require('../assets/phoneintro.png')} style={styles.image} />
+      <Image source={require('../assets/phoneintro3.png')} style={styles.image} />
       <View style={styles.imageContainer}>
         
       </View>
       <View style={styles.textContainer}>
         
-        <Text style={styles.textTitle}>Fast Track - Start Your Fasting Journey Today! <Emoji name="muscle" /></Text>
+        <Text style={styles.textTitle}>Achieve Your Fasting Goals with your Fast Track Now</Text>
         <Text style={styles.textP}>
-          Welcome to Fast Track, your all-in-one solution for intermittent fasting success. 
-          Let's get started on your journey to better health and well-being!
+          Level up your fasting journey with Fast Tracks gamification feature. With Fast Track, staying consistent and ethusiastic is just a tap away!
         </Text>
       </View>
       
       <View style={styles.footerContainer}>
-      <Image source={require('../assets/layout-horizontal-1.png')} style={styles.horizontalLine}/>
+      <Image source={require('../assets/layout-horizontal-3.png')} style={styles.horizontalLine}/>
       <View style={styles.footerBtnContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('Main')} style={styles.skipBtn}>
-          <Text>Skip</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Welcome2')} style={styles.continueBtn}>
-          <Text>Continue</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Main')} style={styles.startBtn}>
+          <Text>Let's Get Started</Text>
         </TouchableOpacity>
         </View>
       </View>
@@ -106,20 +102,10 @@ const styles = StyleSheet.create({
     gap: 50,
     marginBottom: 20,
   },
-  continueBtn: {
+  startBtn: {
     backgroundColor: "#FE3756",
     height: 50,
-    width: 120,
-    borderRadius: 50,
-    zIndex: 5,
-    bottom: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  skipBtn: {
-    backgroundColor: "#FE3756",
-    height: 50,
-    width: 120,
+    width: "90%",
     borderRadius: 50,
     zIndex: 5,
     bottom: 30,
@@ -128,4 +114,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default WelcomeScreen1;
+export default WelcomeScreen2;

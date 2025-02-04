@@ -1,31 +1,30 @@
 import { Text, StyleSheet, View, TouchableOpacity, Image, onPress } from 'react-native';
 import Emoji from "react-native-emoji";
 
-function WelcomeScreen1({ navigation }) {
+function WelcomeScreen3({ navigation }) {
 
   return (
     <View style={styles.container}>
       <Image source={require('../assets/Subtract.png')} style={styles.subtract}/>
-      <Image source={require('../assets/phoneintro.png')} style={styles.image} />
+      <Image source={require('../assets/phoneintro2.png')} style={styles.image} />
       <View style={styles.imageContainer}>
         
       </View>
       <View style={styles.textContainer}>
         
-        <Text style={styles.textTitle}>Fast Track - Start Your Fasting Journey Today! <Emoji name="muscle" /></Text>
+        <Text style={styles.textTitle}>Track Your Progress and Stay Motivated</Text>
         <Text style={styles.textP}>
-          Welcome to Fast Track, your all-in-one solution for intermittent fasting success. 
-          Let's get started on your journey to better health and well-being!
+          Track your fasting progress, water intake, weight, and mood with our inituitive trackers. Gain valuable insights into your habits!
         </Text>
       </View>
       
       <View style={styles.footerContainer}>
-      <Image source={require('../assets/layout-horizontal-1.png')} style={styles.horizontalLine}/>
+      <Image source={require('../assets/layout-horizontal-2.png')} style={styles.horizontalLine}/>
       <View style={styles.footerBtnContainer}>
         <TouchableOpacity onPress={() => navigation.navigate('Main')} style={styles.skipBtn}>
           <Text>Skip</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Welcome2')} style={styles.continueBtn}>
+        <TouchableOpacity onPress={() => navigation.navigate('Welcome3')} style={styles.continueBtn}>
           <Text>Continue</Text>
         </TouchableOpacity>
         </View>
@@ -128,4 +127,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default WelcomeScreen1;
+export default WelcomeScreen3;
