@@ -115,21 +115,6 @@ function WelcomeScreen1({ navigation }) {
           }}
         >
           <TouchableOpacity
-            onPress={() => navigation.navigate("Main")}
-            style={{
-              backgroundColor: "#FE3756",
-              height: 50,
-              width: 120,
-              borderRadius: 50,
-              zIndex: 5,
-              bottom: 30,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Text>Skip</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
             onPress={() => navigation.navigate("Welcome2")}
             style={{
               backgroundColor: "#FE3756",
