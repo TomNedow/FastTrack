@@ -1,33 +1,19 @@
-import {
-  Text,
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Image,
-  onPress,
-} from "react-native";
-import Emoji from "react-native-emoji";
+import { Text, StyleSheet, View, TouchableOpacity, Image } from "react-native";
+
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 function WelcomeScreen3({ navigation }) {
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../assets/Subtract.png")}
-        style={styles.subtract}
-      />
-      <Image
-        source={require("../assets/phoneintro2.png")}
-        style={styles.image}
-      />
-      <View style={styles.imageContainer}></View>
-      <View style={styles.textContainer}>
-        <Text style={styles.textTitle}>
-          Track Your Progress and Stay Motivated
-        </Text>
-        <Text style={styles.textP}>
-          Track your fasting progress, water intake, weight, and mood with our
-          inituitive trackers. Gain valuable insights into your habits!
-        </Text>
+      <View
+        style={{
+          flexDirection: "column",
+          gap: 10,
+          marginTop: 20,
+        }}
+      >
+        <TextInput label="Weight" placeholder="Weight" />
+        <DateTimePicker />
       </View>
 
       <View style={styles.footerContainer}>
@@ -38,12 +24,6 @@ function WelcomeScreen3({ navigation }) {
         <View style={styles.footerBtnContainer}>
           <TouchableOpacity
             onPress={() => navigation.navigate("Main")}
-            style={styles.skipBtn}
-          >
-            <Text>Skip</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Welcome3")}
             style={styles.continueBtn}
           >
             <Text>Continue</Text>
@@ -59,7 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FE3756",
+    backgroundColor: "#FFF",
     zIndex: 1,
     overflow: "hidden",
   },
