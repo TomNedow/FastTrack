@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
+import React, { useState, useEffect, useRef } from 'react';
+import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
 
 function MainPage() {
   const [startTime, setStartTime] = useState(null);
@@ -40,16 +40,10 @@ function MainPage() {
         <Text>
           Time since last fast: {hours}h {minutes}m {seconds}s
         </Text>
-        <TouchableOpacity
-          style={styles.fastingButton}
-          onPress={handleStartFasting}
-        >
+        <TouchableOpacity style={styles.fastingButton} onPress={handleStartFasting}>
           <Text>Start Fasting</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.stopFastingButton}
-          onPress={handleStopFasting}
-        >
+        <TouchableOpacity style={styles.stopFastingButton} onPress={handleStopFasting}>
           <Text>Stop Fasting</Text>
         </TouchableOpacity>
       </View>
@@ -59,34 +53,34 @@ function MainPage() {
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: "#ececec",
-    height: "100%",
-    alignItems: "center",
+    backgroundColor: '#ececec',
+    height: '100%',
+    alignItems: 'center',
   },
   header: {
     marginTop: 20,
   },
   headerText: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   fastingWindow: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     height: 200,
-    width: "90%",
+    width: '90%',
     marginTop: 24,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 20,
   },
   fastingButton: {
-    backgroundColor: "#5cb85c",
+    backgroundColor: '#5cb85c',
     padding: 10,
     marginTop: 20,
     borderRadius: 5,
   },
   stopFastingButton: {
-    backgroundColor: "#d9534f",
+    backgroundColor: '#d9534f',
     padding: 10,
     marginTop: 20,
     borderRadius: 5,
