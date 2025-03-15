@@ -115,7 +115,7 @@ function WelcomeScreen1({ navigation }) {
           }}
         >
           <TouchableOpacity
-            onPress={() => navigation.navigate("Welcome2")}
+            onPress={() => navigation.navigate("Setup")}
             style={{
               backgroundColor: "#FE3756",
               height: 50,
