@@ -84,32 +84,6 @@ function Welcome({ navigation }) {
           fasting success. Let's get started on your journey to better health
           and well-being!
         </Text>
-        <Text
-          style={{
-            fontSize: 22,
-            fontWeight: "bold",
-            color: "#000",
-            textAlign: "center",
-            marginBottom: 20,
-            marginTop: 30,
-            zIndex: 3,
-            lineHeight: 30,
-          }}
-        >
-          Track Your Progress and Stay Motivated
-        </Text>
-        <Text
-          style={{
-            fontSize: 16,
-            zIndex: 3,
-            paddingHorizontal: 10,
-            textAlign: "center",
-            lineHeight: 24,
-          }}
-        >
-          Track your fasting progress, water intake, weight, and mood with our
-          inituitive trackers. Gain valuable insights into your habits!
-        </Text>
       </View>
 
       <View
@@ -153,7 +127,13 @@ function Welcome({ navigation }) {
               alignItems: "center",
             }}
           >
-            <Text>Continue</Text>
+            <Text
+              style={{
+                color: "#FFF",
+              }}
+            >
+              Continue
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

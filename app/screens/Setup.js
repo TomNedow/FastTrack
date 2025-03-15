@@ -1,8 +1,15 @@
-import { Text, StyleSheet, View, TouchableOpacity, Image } from "react-native";
+import {
+  TextInput,
+  Text,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 
-import DateTimePicker from "@react-native-community/datetimepicker";
+// import DateTimePicker from "@react-native-community/datetimepicker";
 
-function WelcomeScreen3({ navigation }) {
+function Setup({ navigation }) {
   return (
     <View style={styles.container}>
       <View
@@ -13,7 +20,7 @@ function WelcomeScreen3({ navigation }) {
         }}
       >
         <TextInput label="Weight" placeholder="Weight" />
-        <DateTimePicker />
+        {/* <DateTimePicker /> */}
       </View>
 
       <View style={styles.footerContainer}>
@@ -26,7 +33,7 @@ function WelcomeScreen3({ navigation }) {
             onPress={() => navigation.navigate("Main")}
             style={styles.continueBtn}
           >
-            <Text>Continue</Text>
+            <Text style={{ color: "#FFF" }}>Continue</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -129,4 +136,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WelcomeScreen3;
+export default Setup;

@@ -4,6 +4,7 @@ import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
 function MainPage() {
   const [startTime, setStartTime] = useState(null);
   const [elapsedTime, setElapsedTime] = useState(0);
+  const intervalRef = useRef(null);
 
   function handleStartFasting() {
     const currentStartTime = new Date();
