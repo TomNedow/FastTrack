@@ -1,30 +1,52 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
+import React, { useState, useRef } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 function MainPage() {
   const [startTime, setStartTime] = useState(null);
-  const [elapsedTime, setElapsedTime] = useState(0); 
+  const [elapsedTime, setElapsedTime] = useState(0);
+  const [isFasting, setIsFasting] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = useRef(null);
 
   function handleStartFasting() {
-    const currentStartTime = new Date(); /
+    const currentStartTime = new Date();
     setStartTime(currentStartTime);
+    setIsFasting(true);
+    setIsPaused(false);
 
-    // Start an interval to update elapsed time every second
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+
     intervalRef.current = setInterval(() => {
-      const currentTime = new Date();
-      const timeDifference = currentTime - currentStartTime;
-      setElapsedTime(timeDifference); 
-    }, 1000); 
+      setElapsedTime((prevTime) => prevTime + 1000);
+    }, 1000);
   }
 
   function handleStopFasting() {
-    // Stop the interval and reset the fasting state
-    clearInterval(intervalRef.current);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
     setStartTime(null);
     setElapsedTime(0);
+    setIsFasting(false);
+    setIsPaused(false);
   }
 
-  // Calculate hours, minutes, seconds from elapsed time
+  function handlePauseResumeFasting() {
+    if (isPaused) {
+     
+      intervalRef.current = setInterval(() => {
+        setElapsedTime((prevTime) => prevTime + 1000);
+      }, 1000);
+    } else {
+      // Pause timer
+      clearInterval(intervalRef.current);
+    }
+    setIsPaused(!isPaused);
+  }
+
+  // Calculate hours, minutes, seconds
   const seconds = Math.floor((elapsedTime / 1000) % 60);
   const minutes = Math.floor((elapsedTime / (1000 * 60)) % 60);
   const hours = Math.floor((elapsedTime / (1000 * 60 * 60)) % 24);
@@ -35,54 +57,37 @@ function MainPage() {
         <Text style={styles.headerText}>Home</Text>
       </View>
 
-      {/* Fasting Window */}
       <View style={styles.fastingWindow}>
         <Text>Time since last fast: {hours}h {minutes}m {seconds}s</Text>
-        <TouchableOpacity style={styles.fastingButton} onPress={handleStartFasting}>
-          <Text>Start Fasting</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.stopFastingButton} onPress={handleStopFasting}>
-          <Text>Stop Fasting</Text>
-        </TouchableOpacity>
+
+        {!isFasting ? (
+          <TouchableOpacity style={styles.fastingButton} onPress={handleStartFasting}>
+            <Text style={styles.fastingButtonText}>Start Fasting</Text>
+          </TouchableOpacity>
+        ) : (
+          <>
+            <TouchableOpacity style={styles.stopFastingButton} onPress={handleStopFasting}>
+              <Text>Stop Fasting</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.pauseButton} onPress={handlePauseResumeFasting}>
+              <Text>{isPaused ? 'Resume Fasting' : 'Pause Fasting'}</Text>
+            </TouchableOpacity>
+          </>
+        )}
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  background: {
-    backgroundColor: "#ececec",
-    height: "100%",
-    alignItems: "center",
-  },
-  header: {
-    marginTop: 20,
-  },
-  headerText: {
-    fontSize: 28,
-    fontWeight: "bold",
-  },
-  fastingWindow: {
-    backgroundColor: "#fff",
-    height: 200,
-    width: "90%",
-    marginTop: 24,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 20,
-  },
-  fastingButton: {
-    backgroundColor: "#5cb85c",
-    padding: 10,
-    marginTop: 20,
-    borderRadius: 5,
-  },
-  stopFastingButton: {
-    backgroundColor: "#d9534f",
-    padding: 10,
-    marginTop: 20,
-    borderRadius: 5,
-  },
+  background: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: "#FE3756" },
+  header: { padding: 20 },
+  headerText: { fontSize: 24, fontWeight: 'bold' },
+  fastingWindow: { alignItems: 'center' },
+  fastingButton: { backgroundColor: 'green', padding: 10, margin: 5, borderRadius: 10, height: 70, width: 150, justifyContent: "center", alignItems: "center",},
+  fastingButtonText: {fontSize: 20, fontFamily: "Playfair"},
+  stopFastingButton: { backgroundColor: 'red', padding: 10, margin: 5, borderRadius: 5,},
+  pauseButton: { backgroundColor: 'yellow', padding: 10, margin: 5 },
 });
 
 export default MainPage;
