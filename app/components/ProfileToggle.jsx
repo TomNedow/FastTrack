@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 function ProfileToggle() {
   const [showProfile, setShowProfile] = useState(false);
   const handlePress = () => {
-    setShowProfile(prevState => !prevState);
+    setShowProfile((prevState) => !prevState);
   };
 
   return (

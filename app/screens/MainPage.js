@@ -35,7 +35,6 @@ function MainPage() {
 
   function handlePauseResumeFasting() {
     if (isPaused) {
-     
       intervalRef.current = setInterval(() => {
         setElapsedTime((prevTime) => prevTime + 1000);
       }, 1000);
@@ -58,7 +57,9 @@ function MainPage() {
       </View>
 
       <View style={styles.fastingWindow}>
-        <Text>Time since last fast: {hours}h {minutes}m {seconds}s</Text>
+        <Text>
+          Time since last fast: {hours}h {minutes}m {seconds}s
+        </Text>
 
         {!isFasting ? (
           <TouchableOpacity style={styles.fastingButton} onPress={handleStartFasting}>
@@ -80,13 +81,27 @@ function MainPage() {
 }
 
 const styles = StyleSheet.create({
-  background: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: "#FE3756" },
+  background: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FE3756',
+  },
   header: { padding: 20 },
   headerText: { fontSize: 24, fontWeight: 'bold' },
   fastingWindow: { alignItems: 'center' },
-  fastingButton: { backgroundColor: 'green', padding: 10, margin: 5, borderRadius: 10, height: 70, width: 150, justifyContent: "center", alignItems: "center",},
-  fastingButtonText: {fontSize: 20, fontFamily: "Playfair"},
-  stopFastingButton: { backgroundColor: 'red', padding: 10, margin: 5, borderRadius: 5,},
+  fastingButton: {
+    backgroundColor: 'green',
+    padding: 10,
+    margin: 5,
+    borderRadius: 10,
+    height: 70,
+    width: 150,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  fastingButtonText: { fontSize: 20, fontFamily: 'Playfair' },
+  stopFastingButton: { backgroundColor: 'red', padding: 10, margin: 5, borderRadius: 5 },
   pauseButton: { backgroundColor: 'yellow', padding: 10, margin: 5 },
 });
 

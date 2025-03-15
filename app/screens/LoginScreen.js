@@ -1,33 +1,28 @@
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, ImageBackground, Button } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  TouchableOpacity,
+  ImageBackground,
+  Button,
+} from 'react-native';
 
-
-function LoginScreen({navigation}) {
-
-
+function LoginScreen({ navigation }) {
   return (
-    <ImageBackground 
-      source={require('../assets/login-background.png')} 
-      style={styles.container}
-    >
-
+    <ImageBackground source={require('../assets/login-background.png')} style={styles.container}>
       <Text style={styles.header}>Login</Text>
 
-      <TextInput 
-        style={styles.input}
-        placeholder="User Name"
-      />
-      <TextInput 
-        style={styles.input}
-        placeholder="Password"
-      />
-      
+      <TextInput style={styles.input} placeholder="User Name" />
+      <TextInput style={styles.input} placeholder="Password" />
+
       <TouchableOpacity style={styles.forgetPasswordContainer}>
         <Text style={styles.forgetPasswordText}>Forget Password</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Main')}>
-  <Text style={styles.buttonText}>Login</Text>
-</TouchableOpacity>
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
     </ImageBackground>
   );
 }
@@ -37,7 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20, 
+    padding: 20,
   },
   input: {
     height: 40,
@@ -59,7 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#28a745',
     paddingVertical: 10,
     paddingHorizontal: 20,
-    width: "80%",
+    width: '80%',
     borderRadius: 5,
   },
   buttonText: {
@@ -72,14 +67,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: 10,
   },
-  
+
   forgetPasswordText: {
-    alignSelf: "flex-end",
-    color: "#007BFF",
+    alignSelf: 'flex-end',
+    color: '#007BFF',
     fontSize: 14,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
-  
 });
 
 export default LoginScreen;
