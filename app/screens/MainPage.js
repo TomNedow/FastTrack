@@ -3,18 +3,18 @@ import { Text, StyleSheet, View, TouchableOpacity } from "react-native";
 
 function MainPage() {
   const [startTime, setStartTime] = useState(null);
-  const [elapsedTime, setElapsedTime] = useState(0); 
+  const [elapsedTime, setElapsedTime] = useState(0);
 
   function handleStartFasting() {
-    const currentStartTime = new Date(); /
+    const currentStartTime = new Date();
     setStartTime(currentStartTime);
 
     // Start an interval to update elapsed time every second
     intervalRef.current = setInterval(() => {
       const currentTime = new Date();
       const timeDifference = currentTime - currentStartTime;
-      setElapsedTime(timeDifference); 
-    }, 1000); 
+      setElapsedTime(timeDifference);
+    }, 1000);
   }
 
   function handleStopFasting() {
@@ -37,11 +37,19 @@ function MainPage() {
 
       {/* Fasting Window */}
       <View style={styles.fastingWindow}>
-        <Text>Time since last fast: {hours}h {minutes}m {seconds}s</Text>
-        <TouchableOpacity style={styles.fastingButton} onPress={handleStartFasting}>
+        <Text>
+          Time since last fast: {hours}h {minutes}m {seconds}s
+        </Text>
+        <TouchableOpacity
+          style={styles.fastingButton}
+          onPress={handleStartFasting}
+        >
           <Text>Start Fasting</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.stopFastingButton} onPress={handleStopFasting}>
+        <TouchableOpacity
+          style={styles.stopFastingButton}
+          onPress={handleStopFasting}
+        >
           <Text>Stop Fasting</Text>
         </TouchableOpacity>
       </View>
